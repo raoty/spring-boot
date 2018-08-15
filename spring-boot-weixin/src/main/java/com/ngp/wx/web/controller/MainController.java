@@ -50,6 +50,7 @@ public class MainController {
         long begin = System.currentTimeMillis();
         log.info("request: " + request.toString());
         Map res = new HashMap();
+        res.put("Name", "1234");
         LoginResponse response = BeanUtils.map2Bean(res, LoginResponse.class);
        // response.setResCode("AAAA");
         //response.setResMsg("Success!!!");
