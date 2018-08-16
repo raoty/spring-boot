@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <script type="text/javascript" th:src="@{https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js}"></script>
+    <link th:href="@{https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css}" rel="stylesheet"/>
+    <link th:href="@{/css/default.css}" rel="stylesheet"/>
+    <link rel="icon" th:href="@{/images/favicon.ico}" type="image/x-icon"/>
+    <meta charset="UTF-8"/>
+    <title>NGP</title>
+</head>
+
+<script>
+
+    var data = {
+        "id" : "1234",
+        "passWord" : "1234",
+        "msg" : "1234"
+    }
+    var result1 ;
+    $(function(){
+        $("#btnout").click(function() {
+            $.ajax({
+                type: "post",
+                url: "/wx/login1",
+                contentType: "application/json",
+                dataType: "json",
+                data: JSON.stringify(data),
+                success: function (result) {
+                    result1 = result;
+                    console.log(result1);
+                   // $("#res").html(result);
+                }
+            })
+        })
+    });
+</script>
+
+<body>
+<div class="contentDiv">
+
+    <h5>－－－NGP出品－－－</h5>
+
+    <legend>
+        <strong>登录</strong>
+    </legend>
+
+    <form method="post" class="form-horizontal">
+
+        <div id="res" value="111">111
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <input class="btn btn-primary" type="submit" value="提交" id="btnout"/>&nbsp;&nbsp;
+                <input class="btn" type="button" value="返回" onclick="history.back()"/>
+            </div>
+        </div>
+    </form>
+</div>
+</body>
+</html>
