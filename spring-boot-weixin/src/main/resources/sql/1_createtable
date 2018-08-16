@@ -1,7 +1,6 @@
--- auto-generated definition
 CREATE TABLE menu
 (
-  menuid    INT          NOT NULL
+  menuid    INT AUTO_INCREMENT
     PRIMARY KEY,
   type      VARCHAR(50)  NOT NULL,
   name      VARCHAR(100) NOT NULL,
