@@ -3,7 +3,7 @@ CREATE TABLE menu
 (
   menuid    INT          NOT NULL
     PRIMARY KEY,
-  tyoe      VARCHAR(50)  NOT NULL,
+  type      VARCHAR(50)  NOT NULL,
   name      VARCHAR(100) NOT NULL,
   `key`     VARCHAR(50)  NULL,
   url       VARCHAR(200) NULL,
