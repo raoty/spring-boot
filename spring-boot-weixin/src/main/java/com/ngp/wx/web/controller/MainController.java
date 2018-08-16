@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.HashMap;
+import java.util.Map;
 
 /**
  * json 接口数据请求
@@ -32,17 +33,18 @@ public class MainController implements ApplicationContextAware{
 
 
     @RequestMapping(value = "/wx/{trsId}")
-    public String queryprojects(@PathVariable("trsId") String trsId) throws Exception{
+    public Object queryprojects(@PathVariable("trsId") String trsId) throws Exception{
         Object action = applicationContext.getBean(trsId);
+        Map resMap = null;
         if(action instanceof Action){
             Action action1 = (Action)action;
             if(action1 instanceof Executable){
-                ((Executable) action1).execute(new HashMap());
+            	resMap = ((Executable) action1).execute(new HashMap());
             }
         }else{
             throw new Exception(ErrorConstants.UNDEFIND_ERROR);
         }
-        return "";
+        return resMap;
     }
 
 }

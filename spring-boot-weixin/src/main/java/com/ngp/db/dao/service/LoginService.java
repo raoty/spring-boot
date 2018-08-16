@@ -1,6 +1,7 @@
 package com.ngp.db.dao.service;
 
 import com.ngp.db.dao.mapper.LoginMapper;
+import com.ngp.db.dao.vo.NgpWxUser;
 import com.ngp.db.dao.vo.TestVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,5 +19,9 @@ public class LoginService {
 
     public TestVo selectObjById(String id){
         return mapper.selectObjById(id);
+    }
+    
+    public NgpWxUser selectUserById(String id) {
+    	return mapper.selectUserById(id);
     }
 }

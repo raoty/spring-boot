@@ -1,5 +1,6 @@
 package com.ngp.db.dao.mapper;
 
+import com.ngp.db.dao.vo.NgpWxUser;
 import com.ngp.db.dao.vo.TestVo;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
@@ -17,5 +18,7 @@ public interface LoginMapper {
 
 	@Select("select * from test")
 	List<TestVo> selectAll();//查询全部
+	
+	NgpWxUser selectUserById(String id);
 
 }
