@@ -1,4 +1,4 @@
-package com.ngp.wx;
+package com.ngp;
 
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.alibaba.fastjson.support.config.FastJsonConfig;

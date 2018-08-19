@@ -9,6 +9,11 @@ public class HtmlController {
 
     @RequestMapping("/login")
     public String loginHtml(){
-        return "test";
+        return "login";
+    }
+    
+    @RequestMapping("/index")
+    public String welcomeHtml(){
+        return "index";
     }
 }

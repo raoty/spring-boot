@@ -6,8 +6,38 @@
         <result column="name" property="name" jdbcType="CHAR" />
     </resultMap>
 
-    <select id="selectObjById" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    <select id="selectObjById" resultMap="BaseResultMap" parameterType="String" >
         select name
         from test where name = #{name,jdbcType=CHAR}
+    </select>
+    
+    <resultMap id="ngpWxUserMap" type="NgpWxUser" >
+        <result column="user_id" property="user_id" jdbcType="INTEGER"  />
+        <result column="name" property="name" jdbcType="VARCHAR"  />
+        <result column="nick_name" property="nick_name" jdbcType="VARCHAR"  />
+        <result column="tel_num" property="tel_num" jdbcType="CHAR"  />
+        <result column="passwd" property="passwd" jdbcType="VARCHAR"  />
+        <result column="sex" property="sex" jdbcType="CHAR"  />
+        <result column="sign_date" property="sign_date" jdbcType="TIMESTAMP"  />
+        <result column="up_date" property="up_date" jdbcType="TIMESTAMP"  />
+        <result column="remark1" property="remark1" jdbcType="VARCHAR"  />
+        <result column="remark2" property="remark2" jdbcType="VARCHAR"  />
+    </resultMap>
+    <select id="selectUserById" resultMap="ngpWxUserMap" parameterType="String" >
+        select 
+        	user_id,
+        	name,
+        	nick_name,
+        	tel_num,
+        	passwd,
+        	sex,
+        	sign_date,
+        	up_date,
+        	remark1,
+        	remark2
+        from
+        	ngp_wx_user
+        where
+        	user_id = #{id}
     </select>
 </mapper>

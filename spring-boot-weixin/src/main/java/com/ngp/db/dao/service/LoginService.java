@@ -4,6 +4,7 @@ import com.ngp.db.dao.mapper.LoginMapper;
 import com.ngp.db.dao.vo.NgpWxUser;
 import com.ngp.db.dao.vo.TestVo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 
