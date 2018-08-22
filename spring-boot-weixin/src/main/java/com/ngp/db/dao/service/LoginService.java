@@ -25,4 +25,9 @@ public class LoginService {
     public NgpWxUser selectUserById(String id) {
     	return mapper.selectUserById(id);
     }
+    
+    public NgpWxUser selectUserByUser(NgpWxUser nwu) {
+    	return mapper.selectUserByUser(nwu);
+    }
+    
 }
