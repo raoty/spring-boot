@@ -48,7 +48,6 @@ public class HttpTransport implements Transport {
 
     private PoolingHttpClientConnectionManager gcm = null;
 
-    @Autowired
     public HttpTransport() {
 
         Registry<ConnectionSocketFactory> registry = RegistryBuilder.<ConnectionSocketFactory>create()

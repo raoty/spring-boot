@@ -1,4 +1,4 @@
-package com.ngp.core.action;
+package com.ngp.core.action.interfaces;
 
 import java.util.Map;
 

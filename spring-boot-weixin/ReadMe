@@ -1,0 +1,4 @@
+1、获取openid测试：
+	WxConstants.java类中修改APPSECRET和APPID、MYAPP_URL为自己公众号的中数据
+	为服务器配置外网域名(免费域名可以用ngrok)，同时修改公众号中的域名为服务器外网域名
+	在公众号中点击：http://外网域名/wx/wxOauthUrl，查看后台日志
