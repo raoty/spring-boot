@@ -20,7 +20,7 @@ public class WxDataSourceConfirguration {
 
     @Primary
     @Bean(name ="wxDataSource")
-    @ConfigurationProperties(prefix = "dbwx.datasource")
+    @ConfigurationProperties(prefix = "dbwx.datasource.hikari")
     public DataSource wxDataSource() {
         return DataSourceBuilder.create().build();
     }

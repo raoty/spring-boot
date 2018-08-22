@@ -19,7 +19,7 @@ public class MultiJdbcAccess {
     @Autowired
     public MultiJdbcAccess(SqlSession sqlSession,
                            @Qualifier("wxSqlSessionTemplate") SqlSession wxSqlSessionTemplate){
-        sqlMapRegister.put(DB_DEFAULT, sqlSession);
+//        sqlMapRegister.put(DB_DEFAULT, sqlSession);
         sqlMapRegister.put(DB_WX, wxSqlSessionTemplate);
 
     }

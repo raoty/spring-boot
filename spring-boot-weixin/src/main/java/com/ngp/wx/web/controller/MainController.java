@@ -1,5 +1,6 @@
 package com.ngp.wx.web.controller;
 
+import com.google.gson.Gson;
 import com.ngp.core.util.BeanUtils;
 import com.ngp.wx.web.action.LoginAction;
 import com.ngp.wx.web.pkg.vo.LoginRequest;
@@ -31,16 +32,18 @@ public class MainController {
      * @throws Exception
      */
     @RequestMapping("/login")
-    public LoginResponse login(@RequestBody LoginRequest request) throws Exception {
+    public String login(@RequestBody LoginRequest request) throws Exception {
         log.info("trans begin: Login");
         long begin = System.currentTimeMillis();
-        request.toString();
+//        request.toString();
         Map res = loginAction.execute(BeanUtils.bean2Map(request));
-        LoginResponse response = BeanUtils.map2Bean(res, LoginResponse.class);
+//        LoginResponse response = BeanUtils.map2Bean(res, LoginResponse.class);
         long end = System.currentTimeMillis();
 
         log.info("trans end: Login,on time: " + (end - begin));
-        return response;
+        System.out.println(res.toString());
+//        return res.toString();
+        return new Gson().toJson(res);
     }
 
     @RequestMapping(value = "/login1", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
