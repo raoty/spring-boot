@@ -1,7 +1,9 @@
 package com.ngp.wx.web.action;
 
 import com.ngp.core.action.AbstractExecuteableAction;
-import com.ngp.db.dao.mapper.MenuMapper;
+import com.ngp.core.dict.Dict;
+import com.ngp.core.transport.HttpClientRequest;
+import com.ngp.core.util.MenuUtil;
 import com.ngp.db.dao.service.MenuService;
 import com.ngp.db.dao.vo.MenuVo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +23,13 @@ public class MenuPushAction extends AbstractExecuteableAction{
 
         List<MenuVo> menus = menuService.selectAllMenu();
 
+        String jsonmenu = MenuUtil.list2JsonStrForMenu(menus);
+
+        HttpClientRequest request = new HttpClientRequest();
+        request.setJsonStr(jsonmenu);
+        request.setUrl(Dict.WXURL);
+
+        getHttpTransport().execute(request);
         System.out.println(menus);
 
         return null;
