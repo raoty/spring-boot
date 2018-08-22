@@ -40,4 +40,22 @@
         where
         	user_id = #{id}
     </select>
+    
+    <select id="selectUserByUser" resultMap="ngpWxUserMap" parameterType="NgpWxUser" >
+        select 
+        	user_id,
+        	name,
+        	nick_name,
+        	tel_num,
+        	passwd,
+        	sex,
+        	sign_date,
+        	up_date,
+        	remark1,
+        	remark2
+        from
+        	ngp_wx_user
+        where
+        	name = #{name} and passwd = #{passwd}
+    </select>
 </mapper>

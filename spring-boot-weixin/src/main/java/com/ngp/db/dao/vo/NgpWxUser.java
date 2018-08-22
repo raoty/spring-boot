@@ -2,6 +2,8 @@ package com.ngp.db.dao.vo;
 
 import java.sql.Timestamp;
 
+import com.ngp.core.dict.enums.Sex;
+
 public class NgpWxUser {
 
 	private int user_id;
@@ -45,7 +47,7 @@ public class NgpWxUser {
 		this.passwd = passwd;
 	}
 	public String getSex() {
-		return sex;
+		return Sex.parseOfValue(sex);
 	}
 	public void setSex(String sex) {
 		this.sex = sex;

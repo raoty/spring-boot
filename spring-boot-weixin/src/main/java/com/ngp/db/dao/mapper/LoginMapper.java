@@ -18,7 +18,9 @@ public interface LoginMapper {
 
 	@Select("select * from test")
 	List<TestVo> selectAll();//查询全部
-	
+
 	NgpWxUser selectUserById(String id);
+	
+	NgpWxUser selectUserByUser(NgpWxUser nwu);
 
 }
