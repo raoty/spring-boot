@@ -7,13 +7,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
+import java.io.Serializable;
+
+
 
 /**
  * 登录service
  *
  */
 @Service
-public class LoginService {
+public class LoginService{
 
     @Autowired
     private LoginMapper mapper;
