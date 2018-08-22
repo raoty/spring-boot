@@ -10,6 +10,33 @@ import org.springframework.stereotype.Service;
 import java.io.Serializable;
 
 
+
+/**
+ * 登录service
+ *
+ */
+@Service
+public class LoginService{
+
+    @Autowired
+    private LoginMapper mapper;
+
+    public TestVo selectObjById(String id){
+        return mapper.selectObjById(id);
+    }
+    
+    public NgpWxUser selectUserById(String id) {
+    	return mapper.selectUserById(id);
+    }
+    
+    public NgpWxUser selectUserByUser(NgpWxUser nwu) {
+    	return mapper.selectUserByUser(nwu);
+    }
+    
+}
+
+
+
 /**
  * 登录service
  *
