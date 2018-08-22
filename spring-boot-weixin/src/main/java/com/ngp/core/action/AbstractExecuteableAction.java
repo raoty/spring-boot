@@ -1,6 +1,7 @@
 package com.ngp.core.action;
 
 import com.ngp.core.dict.Dict;
+import com.ngp.core.transport.HttpTransport;
 import com.ngp.wx.config.db.MultiJdbcAccess;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,9 @@ public abstract class AbstractExecuteableAction implements Action,Executable{
     @Autowired
     private MultiJdbcAccess multiJdbcAccess;
 
+    @Autowired
+    private HttpTransport httpTransport;
+
     /**
      * 获取默认数据库操作类
      * @return
@@ -24,7 +28,9 @@ public abstract class AbstractExecuteableAction implements Action,Executable{
         return multiJdbcAccess.getSqlMap();
     }
 
-    //TODO
+    public HttpTransport getHttpTransport(){
+        return httpTransport;
+    }
 
     public Map execute(Object obj) throws Exception{
 		Map responseMap = new HashMap();
@@ -43,6 +49,9 @@ public abstract class AbstractExecuteableAction implements Action,Executable{
     		requestMap.put(Dict.REQUESTSTRING, obj);
     		responseMap = execute(requestMap);
     	}
+    	if(obj instanceof Map){
+    	    responseMap = execute((Map)obj);
+        }
     	
         responseMap.put(Dict.RESPONSECODE,"AAAAAAA");
         return responseMap;
