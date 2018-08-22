@@ -7,4 +7,5 @@ public class Dict {
 
 
     public static final String NAME = "Name";
+    public static final String WXURL = "https://api.weixin.qq.com/cgi-bin/menu/create?access_token=";
 }
