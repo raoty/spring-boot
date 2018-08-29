@@ -1,37 +1,19 @@
 package com.ngp.core.action;
 
-import com.ngp.core.dict.Dict;
-import com.ngp.core.transport.HttpTransport;
-import com.ngp.wx.config.db.MultiJdbcAccess;
-import org.apache.ibatis.session.SqlSession;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpEntity;
-
 import java.util.HashMap;
 import java.util.Map;
+
+import org.springframework.http.HttpEntity;
+
+import com.ngp.core.action.interfaces.Action;
+import com.ngp.core.action.interfaces.Executable;
+import com.ngp.core.dict.Dict;
 
 /**
  * Created by lettuce on 2017/6/28.
  */
-public abstract class AbstractExecuteableAction implements Action,Executable{
-    @Autowired
-    private MultiJdbcAccess multiJdbcAccess;
-
-    @Autowired
-    private HttpTransport httpTransport;
-
-    /**
-     * 获取默认数据库操作类
-     * @return
-     */
-    public SqlSession getSqlMap(){
-        return multiJdbcAccess.getSqlMap();
-    }
-
-    public HttpTransport getHttpTransport(){
-        return httpTransport;
-    }
-
+public abstract class AbstractExecuteableAction extends BaseAction implements Action,Executable{
+	
     public Map execute(Object obj) throws Exception{
 		Map responseMap = new HashMap();
 		Map requestMap = new HashMap();

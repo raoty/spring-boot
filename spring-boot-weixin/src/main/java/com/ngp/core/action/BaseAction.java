@@ -10,5 +10,10 @@ public abstract class BaseAction {
 	protected Log log = LogFactory.getLog(this.getClass());
 	
 	@Autowired
-	protected HttpTransport httpTransport;
+	private HttpTransport httpTransport;
+
+	public HttpTransport getHttpTransport() {
+		return httpTransport;
+	}
+	
 }

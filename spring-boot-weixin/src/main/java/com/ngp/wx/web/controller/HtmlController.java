@@ -57,7 +57,7 @@ public class HtmlController extends BaseAction{
 		//TODO 优化代码
 		HttpClientRequest httpClientRequest = new HttpClientRequest();
 		httpClientRequest.setUrl(url);
-		String execute = httpTransport.execute(httpClientRequest);
+		String execute = getHttpTransport().execute(httpClientRequest);
 		
 		log.info("============鉴权结果：" + execute);
 		
