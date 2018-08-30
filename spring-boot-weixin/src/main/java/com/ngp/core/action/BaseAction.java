@@ -1,13 +1,13 @@
 package com.ngp.core.action;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.ngp.core.transport.HttpTransport;
 
 public abstract class BaseAction {
-	protected Log log = LogFactory.getLog(this.getClass());
+	protected Logger log = LoggerFactory.getLogger(this.getClass());
 	
 	@Autowired
 	private HttpTransport httpTransport;

@@ -11,5 +11,6 @@
         <typeAlias alias="TestVo" type="com.ngp.db.dao.vo.TestVo" />
         <typeAlias alias="MenuVo" type="com.ngp.db.dao.vo.MenuVo" />
         <typeAlias alias="NgpWxUser" type="com.ngp.db.dao.vo.NgpWxUser" />
+        <typeAlias alias="NgpWxAccessToken" type="com.ngp.db.dao.vo.NgpWxAccessToken" />
     </typeAliases>
 </configuration>

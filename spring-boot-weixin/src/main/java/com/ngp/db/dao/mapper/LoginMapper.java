@@ -1,11 +1,13 @@
 package com.ngp.db.dao.mapper;
 
-import com.ngp.db.dao.vo.NgpWxUser;
-import com.ngp.db.dao.vo.TestVo;
+import java.util.List;
+
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
-import java.util.List;
+import com.ngp.db.dao.vo.NgpWxAccessToken;
+import com.ngp.db.dao.vo.NgpWxUser;
+import com.ngp.db.dao.vo.TestVo;
 
 /**
  * 对应Login.xml中的相应方法
@@ -23,4 +25,9 @@ public interface LoginMapper {
 	
 	NgpWxUser selectUserByUser(NgpWxUser nwu);
 
+	void insertAccessToken(NgpWxAccessToken ngpWxAccessToken);
+	
+	List<NgpWxAccessToken> selectAccessTokenList();
+	
+	int updateAccessToken(NgpWxAccessToken ngpWxAccessToken);
 }

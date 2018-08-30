@@ -58,4 +58,57 @@
         where
         	name = #{name} and passwd = #{passwd}
     </select>
+    
+    <insert id="insertAccessToken" parameterType="NgpWxAccessToken" >
+        insert into ngp_wx_access_token(
+        	openid,
+        	access_token,
+        	refresh_token,
+        	scope
+        )
+        values(
+        	#{openid},
+        	#{access_token},
+        	#{refresh_token},
+        	#{scope}
+        )
+    </insert>
+    
+    
+    <resultMap id="NgpWxAccessTokenType" type="NgpWxAccessToken" >
+        <result column="openid" property="openid" jdbcType="VARCHAR"  />
+        <result column="userid" property="userid" jdbcType="VARCHAR"  />
+        <result column="access_token" property="access_token" jdbcType="VARCHAR"  />
+        <result column="refresh_token" property="refresh_token" jdbcType="VARCHAR"  />
+        <result column="inser_date" property="inser_date" jdbcType="TIMESTAMP"  />
+        <result column="access_up_date" property="access_up_date" jdbcType="TIMESTAMP"  />
+        <result column="scope" property="scope" jdbcType="VARCHAR"  />
+        <result column="remark1" property="remark1" jdbcType="VARCHAR"  />
+        <result column="remark2" property="remark2" jdbcType="VARCHAR"  />
+    </resultMap>
+    <select id="selectAccessTokenList" resultMap="NgpWxAccessTokenType" >
+        select 
+        	openid,
+        	userid,
+        	access_token,
+        	refresh_token,
+        	inser_date,
+        	access_up_date,
+        	scope,
+        	remark1,
+        	remark2
+        from
+        	ngp_wx_access_token
+    </select>
+    
+    <update id="updateAccessToken" parameterType="NgpWxAccessToken">
+    	update
+    		ngp_wx_access_token
+    	set 
+    		access_token = #{access_token},
+    		refresh_token = #{refresh_token},
+    		access_up_date = #{access_up_date}
+    	where
+    		openid = #{openid}
+    </update>
 </mapper>
